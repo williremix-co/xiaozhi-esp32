@@ -5,7 +5,10 @@
         {
             "name": "bread-compact-wifi-lcd",
             "sdkconfig_append": [
-                "CONFIG_LCD_GC9A01_240X240=y"
+                "CONFIG_LCD_GC9A01_240X240=y",
+                "CONFIG_ESPTOOLPY_FLASHSIZE_4MB=y",
+                "CONFIG_PARTITION_TABLE_CUSTOM=y",
+                "CONFIG_PARTITION_TABLE_CUSTOM_FILENAME=\"partitions/v2/4m.csv\""
             ]
         }
     ]
