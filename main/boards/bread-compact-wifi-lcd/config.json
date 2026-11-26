@@ -4,6 +4,7 @@
     "builds": [
         {
             "name": "bread-compact-wifi-lcd",
+            "display_style": "wechat",
             "sdkconfig_append": [
                 "CONFIG_LCD_GC9A01_240X240=y",
                 "CONFIG_ESPTOOLPY_FLASHSIZE_4MB=y",
@@ -13,9 +14,7 @@
                 "CONFIG_USE_AUDIO_PROCESSOR=n",
                 "CONFIG_USE_AFE_WAKE_WORD=n",
                 "CONFIG_USE_ESP_WAKE_WORD=n",
-                "CONFIG_WAKE_WORD_DISABLED=y",
-                "CONFIG_USE_EMOTE_MESSAGE_STYLE=y",
-                "CONFIG_EMOJI_COLLECTION_TWEMOJI_64=y"
+                "CONFIG_WAKE_WORD_DISABLED=y"
             ]
         }
     ]
