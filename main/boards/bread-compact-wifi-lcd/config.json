@@ -1,2 +1,21 @@
 
-#define BOOT_BUTTON_GPIO        GPIO_NUM_4
+{
+    "type": "bread-compact-wifi-lcd",
+    "target": "esp32s3",
+    "builds": [
+        {
+            "name": "bread-compact-wifi-lcd",
+            "sdkconfig_append": [
+                "CONFIG_LCD_GC9A01_240X240=y",
+                "CONFIG_ESPTOOLPY_FLASHSIZE_4MB=y",
+                "CONFIG_PARTITION_TABLE_CUSTOM=y",
+                "CONFIG_PARTITION_TABLE_CUSTOM_FILENAME=\"partitions/v1/4m.csv\"",
+                "CONFIG_SPIRAM_MODE_QUAD=y",
+                "CONFIG_USE_AUDIO_PROCESSOR=n",
+                "CONFIG_USE_AFE_WAKE_WORD=n",
+                "CONFIG_USE_ESP_WAKE_WORD=n",
+                "CONFIG_WAKE_WORD_DISABLED=y"
+            ]
+        }
+    ]
+}
