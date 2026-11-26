@@ -1,4 +1,3 @@
-
 {
     "type": "bread-compact-wifi-lcd",
     "target": "esp32s3",
@@ -14,7 +13,9 @@
                 "CONFIG_USE_AUDIO_PROCESSOR=n",
                 "CONFIG_USE_AFE_WAKE_WORD=n",
                 "CONFIG_USE_ESP_WAKE_WORD=n",
-                "CONFIG_WAKE_WORD_DISABLED=y"
+                "CONFIG_WAKE_WORD_DISABLED=y",
+                "CONFIG_USE_EMOTE_MESSAGE_STYLE=y",
+                "CONFIG_EMOJI_COLLECTION_TWEMOJI_64=y"
             ]
         }
     ]
