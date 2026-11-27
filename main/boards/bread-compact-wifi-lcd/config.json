@@ -4,7 +4,7 @@
     "builds": [
         {
             "name": "bread-compact-wifi-lcd",
-            "display_style": "wechat",
+            "display_style": "default",
             "sdkconfig_append": [
                 "CONFIG_LCD_GC9A01_240X240=y",
                 "CONFIG_ESPTOOLPY_FLASHSIZE_4MB=y",
@@ -19,4 +19,3 @@
         }
     ]
 }
-
