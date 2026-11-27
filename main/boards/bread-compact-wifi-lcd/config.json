@@ -14,9 +14,9 @@
                 "CONFIG_USE_AUDIO_PROCESSOR=n",
                 "CONFIG_USE_AFE_WAKE_WORD=n",
                 "CONFIG_USE_ESP_WAKE_WORD=n",
-                "CONFIG_WAKE_WORD_DISABLED=y",
-                "CONFIG_EMOJI_COLLECTION_TWEMOJI_64=y"
+                "CONFIG_WAKE_WORD_DISABLED=y"
             ]
         }
     ]
 }
+
