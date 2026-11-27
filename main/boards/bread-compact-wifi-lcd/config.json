@@ -4,7 +4,6 @@
     "builds": [
         {
             "name": "bread-compact-wifi-lcd",
-            "display_style": "default",
             "sdkconfig_append": [
                 "CONFIG_LCD_GC9A01_240X240=y",
                 "CONFIG_USE_EMOTE_MESSAGE_STYLE=y",
