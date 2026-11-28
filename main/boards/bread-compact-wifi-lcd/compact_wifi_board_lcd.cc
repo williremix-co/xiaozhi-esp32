@@ -1,6 +1,6 @@
 #include "wifi_board.h"
 #include "codecs/no_audio_codec.h"
-#include "display/emote_display.h"
+#include "display/lcd_display.h"
 #include "system_reset.h"
 #include "application.h"
 #include "button.h"
@@ -63,7 +63,7 @@ class CompactWifiBoardLCD : public WifiBoard {
 private:
  
     Button boot_button_;
-    Display* display_;
+    LcdDisplay* display_;
 
     void InitializeSpi() {
         spi_bus_config_t buscfg = {};
@@ -79,6 +79,7 @@ private:
     void InitializeLcdDisplay() {
         esp_lcd_panel_io_handle_t panel_io = nullptr;
         esp_lcd_panel_handle_t panel = nullptr;
+        // 液晶屏控制IO初始化
         ESP_LOGD(TAG, "Install panel IO");
         esp_lcd_panel_io_spi_config_t io_config = {};
         io_config.cs_gpio_num = DISPLAY_CS_PIN;
@@ -90,6 +91,7 @@ private:
         io_config.lcd_param_bits = 8;
         ESP_ERROR_CHECK(esp_lcd_new_panel_io_spi(SPI3_HOST, &io_config, &panel_io));
 
+        // 初始化液晶屏驱动芯片
         ESP_LOGD(TAG, "Install LCD driver");
         esp_lcd_panel_dev_config_t panel_config = {};
         panel_config.reset_gpio_num = DISPLAY_RST_PIN;
@@ -116,7 +118,8 @@ private:
 #ifdef  LCD_TYPE_GC9A01_SERIAL
         panel_config.vendor_config = &gc9107_vendor_config;
 #endif
-        display_ = new emote::EmoteDisplay(panel, panel_io, DISPLAY_WIDTH, DISPLAY_HEIGHT);
+        display_ = new SpiLcdDisplay(panel_io, panel,
+                                    DISPLAY_WIDTH, DISPLAY_HEIGHT, DISPLAY_OFFSET_X, DISPLAY_OFFSET_Y, DISPLAY_MIRROR_X, DISPLAY_MIRROR_Y, DISPLAY_SWAP_XY);
     }
 
     void InitializeButtons() {
@@ -130,6 +133,7 @@ private:
         });
     }
 
+    // 物联网初始化，添加对 AI 可见设备
     void InitializeTools() {
         static LampController lamp(LAMP_GPIO);
     }
