@@ -15,6 +15,7 @@
                 "CONFIG_USE_AFE_WAKE_WORD=n",
                 "CONFIG_USE_ESP_WAKE_WORD=n",
                 "CONFIG_WAKE_WORD_DISABLED=y"
+                
             ]
         }
     ]
